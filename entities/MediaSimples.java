@@ -14,7 +14,7 @@ public class MediaSimples extends CalculoMedia {
 	}
 
 	public Double calculaMediaTurma(Turma turma) {
-		Double soma1 = 0.0,soma = 0.0;
+		Double somaMedia = 0.0,soma = 0.0;
 		for (Aluno aluno : turma.getAlunos()) {
 			soma =0.0;
 			for(Nota nota : aluno.getNotas()) {
@@ -22,10 +22,10 @@ public class MediaSimples extends CalculoMedia {
 			}
 			int tamanho = aluno.getNotas().size();
 			double media = soma / tamanho;
-			soma1 = soma1 +media;
+			somaMedia = somaMedia +media;
 		}
 		int tamanho = turma.getAlunos().size();
-		return soma1 / tamanho;
+		return somaMedia / tamanho;
 		
 		
 	}

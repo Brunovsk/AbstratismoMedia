@@ -3,6 +3,7 @@ package application;
 import java.util.Scanner;
 
 import entities.Aluno;
+import entities.MediaPonderada;
 import entities.MediaSimples;
 import entities.Nota;
 import entities.Turma;
@@ -36,7 +37,7 @@ public class Program {
 		turma.getAlunos().add(aluno1);
 		
 		System.out.println("Notas de "+ aluno1.getNome()+" ("+turma.getFase()+") "+":");
-		Nota nota4 = new Nota (7.5,10.0);
+		Nota nota4 = new Nota (7.0,10.0);
 		aluno1.getNotas().add(nota4);
 		Nota nota5 = new Nota(5.0,10.0);
 		aluno1.getNotas().add(nota5);
@@ -47,7 +48,26 @@ public class Program {
 		System.out.println(nota6.getNota());
 		System.out.println("media: "+calculoMedia.calculaMediaAluno(aluno1));
 		System.out.println();
-		System.out.println("MEDIA TURMA: "+calculoMedia.calculaMediaTurma(turma));
+		
+		Aluno aluno2 = new Aluno ("Sid");
+		turma.getAlunos().add(aluno);
+		
+		System.out.println("Notas de "+ aluno2.getNome()+" ("+turma.getFase()+") "+":");
+		Nota nota7 = new Nota (7.0,8.0);
+		aluno2.getNotas().add(nota7);
+		Nota nota8 = new Nota(8.0,3.0);
+		aluno2.getNotas().add(nota8);
+		Nota nota9 = new Nota(6.0,2.0);
+		aluno2.getNotas().add(nota9);
+		System.out.print(nota7.getNota()+",");
+		System.out.print(nota8.getNota()+",");
+		System.out.println(nota9.getNota()); 
+		MediaPonderada mediaPonderada = new MediaPonderada();
+		System.out.println("media: "+mediaPonderada.calculaMediaAluno(aluno2));
+		System.out.println();
+		
+		System.out.println("MEDIA PONDERADA TURMA: "+mediaPonderada.calculaMediaTurma(turma));
+		System.out.println("MEDIA SIMPLES TURMA: "+calculoMedia.calculaMediaTurma(turma));
 		sc.close();
 
 	}
